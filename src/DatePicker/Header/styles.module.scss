@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .text {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+        color: #222222;
+    }
+    .button {
+        background: #f5f5f5;
+        border-radius: 40px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background: #dbdada;
+        }
+    }
+}
