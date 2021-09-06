@@ -9,20 +9,7 @@ declare const useDatePicker$1: ({ minDate, maxDate, minTime, maxTime, fromTimeLa
         selectedDateTime: Date;
         valueDateTime: Date;
         valueString: string;
-        value: {
-            year: number;
-            month: number;
-            date: number;
-            hour: number;
-            minute: number;
-            second: number;
-            fromHour: number;
-            fromMinute: number;
-            fromSecond: number;
-            toHour: number;
-            toMinute: number;
-            toSecond: number;
-        };
+        value: DatePickerValue$1;
         selectedYear: number;
         selectedMonth: number;
         selectedDate: number;
@@ -72,9 +59,27 @@ interface IUseDatePicker {
     toTimeLabel?: string;
     timeType?: number;
 }
+interface DatePickerValue$1 {
+    year: number;
+    month: number;
+    date: number;
+    hour: number;
+    minute: number;
+    second: number;
+    fromHour: number;
+    fromMinute: number;
+    fromSecond: number;
+    toHour: number;
+    toMinute: number;
+    toSecond: number;
+}
 
 interface Props {
     data: DatePickerType$1;
+    pickDate?: boolean;
+    pickTime?: boolean;
+    pickTimeRange?: boolean;
+    onChange?: (data: DatePickerValue$1) => void;
 }
 declare const DatePicker: React.FC<Props>;
 
@@ -87,20 +92,7 @@ declare const useDatePicker: ({ minDate, maxDate, minTime, maxTime, fromTimeLabe
         selectedDateTime: Date;
         valueDateTime: Date;
         valueString: string;
-        value: {
-            year: number;
-            month: number;
-            date: number;
-            hour: number;
-            minute: number;
-            second: number;
-            fromHour: number;
-            fromMinute: number;
-            fromSecond: number;
-            toHour: number;
-            toMinute: number;
-            toSecond: number;
-        };
+        value: DatePickerValue$1;
         selectedYear: number;
         selectedMonth: number;
         selectedDate: number;
@@ -126,6 +118,7 @@ declare const useDatePicker: ({ minDate, maxDate, minTime, maxTime, fromTimeLabe
     };
 };
 declare type DatePickerType = DatePickerType$1;
+declare type DatePickerValue = DatePickerValue$1;
 
-export { DatePickerType, DatePicker as default, useDatePicker };
+export { DatePickerType, DatePickerValue, DatePicker as default, useDatePicker };
 //# sourceMappingURL=index.d.ts.map
