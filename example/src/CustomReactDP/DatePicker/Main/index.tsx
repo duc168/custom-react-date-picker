@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styles from './styles.module.scss'
 import Date from './Date'
-// import Time from './Time'
+import Time from './Time'
 import FromTime from './FromTime'
 import ToTime from './ToTime'
 import { DatePickerType } from '../interface'
 interface Props {
     data: DatePickerType
+    pickDate?: boolean
+    pickTime?: boolean
+    pickTimeRange?: boolean
 }
 const MainContainer: React.FC<Props> = ({
-    data
+    data,
+    pickDate = true,
+    pickTime = false,
+    pickTimeRange = false
 }) => {
     return <div className={styles.container}>
-            <Date data={data} />
-            {/* <Time data={data} /> */}
+            {pickDate && <Date data={data} />}
+            {pickTime && <Time data={data} />}
+            {pickTimeRange && <Fragment>
             <FromTime data={data} />
             <ToTime data={data} />
+            </Fragment>}
     </div>
 }
 

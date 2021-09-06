@@ -31,7 +31,6 @@ export interface ITimeValue {
 
 export type DatePickerType = ReturnType<typeof useDatePicker>
 
-
 export interface IUseDatePicker {
     minDate?: Date
     maxDate?: Date
@@ -40,5 +39,20 @@ export interface IUseDatePicker {
     timeLabel?: string
     fromTimeLabel?: string
     toTimeLabel?: string
-    timeType?: number // 12 or 24
+    timeType?: number // 12 or 24    
+}
+
+export interface DatePickerValue {
+    year: number
+    month: number
+    date: number
+    hour: number
+    minute: number
+    second: number
+    fromHour: number
+    fromMinute: number
+    fromSecond: number
+    toHour: number
+    toMinute: number
+    toSecond: number
 }

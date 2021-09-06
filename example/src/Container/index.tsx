@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 // import DatePicker from 'custom-react-dp'
 // import { useDatePicker } from 'custom-react-dp'
-import DatePicker from 'CustomReactDP'
+import DatePicker, { DatePickerValue } from 'CustomReactDP'
 import { useDatePicker } from 'CustomReactDP'
 import useOnClickOutside from 'hooks/useOnClickOutside'
 import Input from './Input'
@@ -15,22 +15,21 @@ const Container: React.FC<any> = () => {
         timeType: 12
     })
     const { 
-        state: {
-            value
-        },
         action: {
         hideDatePicker,
     } } = datePickerData
     useOnClickOutside(containerRef, () => {
         hideDatePicker()
     })
-    useEffect(() => {
-        console.log('value change', value)
-    }, [value])
+    const onChange = (value: DatePickerValue) => {
+        console.log('on change value', value)
+    }
     return <div className={styles.container} ref={containerRef}>
         <Input data={datePickerData} />
         <DatePicker 
         data={datePickerData} 
+        pickTimeRange={true}
+        onChange={onChange}
          />
     </div>
 }

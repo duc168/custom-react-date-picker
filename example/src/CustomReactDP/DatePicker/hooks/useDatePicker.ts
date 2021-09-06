@@ -1,7 +1,7 @@
-import { addDays, addMonths, differenceInMonths, setHours, setMinutes, setSeconds } from 'date-fns'
+import { addDays, addMonths, differenceInMinutes, differenceInMonths, setHours, setMinutes, setSeconds } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { formatDate, getDateList, getTimeList } from '../helpers'
-import { ITimeItem, ITimeValue, IUseDatePicker } from '../interface'
+import { DatePickerValue, ITimeItem, ITimeValue, IUseDatePicker } from '../interface'
 
 const useDatePicker = ({ 
     minDate = addDays(new Date(), -1),
@@ -74,12 +74,28 @@ const useDatePicker = ({
     }
 
     const selectFromTime = (timeItem: ITimeItem) => {
+        const toTime = new Date(2000, 1,1, valueToHour, valueToMinute)
+        const fromTime = new Date(2000, 1, 1, timeItem.hour, timeItem.minute)
+        const fromTimeIsGreaterThanToTime = differenceInMinutes(toTime, fromTime) <= 0
+        if (fromTimeIsGreaterThanToTime) {
+            setValueToHour(0)
+            setValueToMinute(0)
+            setValueToSecond(0)
+        }
         setValueFromHour(timeItem.hour)
         setValueFromMinute(timeItem.minute)
         setValueFromSecond(0)
     }
 
     const selectToTime = (timeItem: ITimeItem) => {
+        const toTime = new Date(2000, 1,1, timeItem.hour, timeItem.minute)
+        const fromTime = new Date(2000, 1, 1, valueFromHour, valueFromMinute)
+        const toTimeIsLessThanFromTime = differenceInMinutes(toTime, fromTime) <= 0
+        if (toTimeIsLessThanFromTime) {
+            setValueFromHour(0)
+            setValueFromMinute(0)
+            setValueFromSecond(0)
+        }
         setValueToHour(timeItem.hour)
         setValueToMinute(timeItem.minute)
         setValueToSecond(0)
@@ -201,7 +217,7 @@ const useDatePicker = ({
                 toHour: valueToHour,
                 toMinute: valueToMinute,
                 toSecond: valueToSecond,
-            },
+            } as DatePickerValue,
             selectedYear,
             selectedMonth,
             selectedDate,
