@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
-// import { DatePickerType } from 'custom-react-dp'
-import { DatePickerType } from 'CustomReactDP'
+import { DatePickerType } from 'custom-react-dp'
+// import { DatePickerType } from 'CustomReactDP'
 interface Props {
     data: DatePickerType
 }
