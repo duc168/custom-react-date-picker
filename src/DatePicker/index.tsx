@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Header from './Header'
 import { DatePickerType } from './interface'
 import Main from './Main'
 import styles from './styles.module.scss'
@@ -24,7 +23,6 @@ const DatePicker: React.FC<Props> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return <div className={`${styles.container} ${status ? styles.show : styles.hide}`}>
-        <Header data={data} />
         <Main data={data} />
     </div>
 }

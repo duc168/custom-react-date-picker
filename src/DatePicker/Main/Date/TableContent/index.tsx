@@ -1,4 +1,4 @@
-import { DateItemStatusType, DatePickerType, IDateItem } from "../../interface";
+import { DateItemStatusType, DatePickerType, IDateItem } from "../../../interface";
 import React from "react";
 import styles from "./styles.module.scss";
 interface Props {

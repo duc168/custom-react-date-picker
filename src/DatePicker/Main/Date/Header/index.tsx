@@ -1,11 +1,11 @@
 import React  from 'react'
-import { getMonthYearText } from '../helpers'
+import { getMonthYearText } from '../../../helpers'
 import styles from './styles.module.scss'
-import { ReactComponent as LeftArrowIcon } from '../assets/left-arrow.svg'
-import { ReactComponent as  RightArrowIcon } from '../assets/right-arrow.svg'
+import { ReactComponent as LeftArrowIcon } from '../../../assets/left-arrow.svg'
+import { ReactComponent as  RightArrowIcon } from '../../../assets/right-arrow.svg'
 // import LeftArrowIcon from '../assets/left-arrow.svg'
 // import RightArrowIcon from '../assets/right-arrow.svg'
-import { DatePickerType } from '../interface'
+import { DatePickerType } from '../../../interface'
 interface Props {
     data: DatePickerType
 }
