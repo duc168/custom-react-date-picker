@@ -1,4 +1,4 @@
-import { addDays, addMonths, differenceInDays, differenceInMonths, setHours, setMinutes, setSeconds } from 'date-fns'
+import { addDays, addMonths, differenceInMonths, setHours, setMinutes, setSeconds } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { formatDate, getDateList, getTimeList } from '../helpers'
 import { ITimeItem, ITimeValue, IUseDatePicker } from '../interface'
@@ -85,25 +85,25 @@ const useDatePicker = ({
         setValueToSecond(0)
     }
 
-    const nextMonthLegacy = () => {
-        const currentMonth = selectedMonth
-        const currentYear = selectedYear
-        if (currentMonth >= 0 && currentMonth < 11) {
-            setSelectedMonth(currentMonth + 1)
-        }
-        if (currentMonth === 11) {
-            setSelectedMonth(0)
-            setSelectedYear(currentYear + 1)
-        }
-        const yearCheck = selectedYear === valueYear
-        const monthCheck = selectedMonth === valueMonth
-        if (yearCheck && monthCheck) {
-            setSelectedDate(valueDate)
-        } else {
-            setSelectedDate(0)
-        }
+    // const nextMonthLegacy = () => {
+    //     const currentMonth = selectedMonth
+    //     const currentYear = selectedYear
+    //     if (currentMonth >= 0 && currentMonth < 11) {
+    //         setSelectedMonth(currentMonth + 1)
+    //     }
+    //     if (currentMonth === 11) {
+    //         setSelectedMonth(0)
+    //         setSelectedYear(currentYear + 1)
+    //     }
+    //     const yearCheck = selectedYear === valueYear
+    //     const monthCheck = selectedMonth === valueMonth
+    //     if (yearCheck && monthCheck) {
+    //         setSelectedDate(valueDate)
+    //     } else {
+    //         setSelectedDate(0)
+    //     }
 
-    }
+    // }
     const updateCurrentSelectedDate = () => {
         const yearCheck = selectedYear === valueYear
         const monthCheck = selectedMonth === valueMonth
@@ -123,24 +123,24 @@ const useDatePicker = ({
         updateCurrentSelectedDate()
 
     }
-    const previousMonthLegacy = () => {
-        const currentMonth = selectedMonth
-        const currentYear = selectedYear
-        if (currentMonth > 0 && currentMonth <= 11) {
-            setSelectedMonth(currentMonth - 1)
-        }
-        if (currentMonth === 0) {
-            setSelectedMonth(11)
-            setSelectedYear(currentYear - 1)
-        }
-        const yearCheck = selectedYear === valueYear
-        const monthCheck = selectedMonth === valueMonth
-        if (yearCheck && monthCheck) {
-            setSelectedDate(valueDate)
-        } else {
-            setSelectedDate(0)
-        }
-    }
+    // const previousMonthLegacy = () => {
+    //     const currentMonth = selectedMonth
+    //     const currentYear = selectedYear
+    //     if (currentMonth > 0 && currentMonth <= 11) {
+    //         setSelectedMonth(currentMonth - 1)
+    //     }
+    //     if (currentMonth === 0) {
+    //         setSelectedMonth(11)
+    //         setSelectedYear(currentYear - 1)
+    //     }
+    //     const yearCheck = selectedYear === valueYear
+    //     const monthCheck = selectedMonth === valueMonth
+    //     if (yearCheck && monthCheck) {
+    //         setSelectedDate(valueDate)
+    //     } else {
+    //         setSelectedDate(0)
+    //     }
+    // }
     const previousMonth = () => {
         const currentDate = new Date(selectedYear, selectedMonth)
         const previousMonth = addMonths(currentDate, -1)
