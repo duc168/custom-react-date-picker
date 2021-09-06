@@ -1,6 +1,7 @@
 import useDatePicker from "../hooks/useDatePicker"
 
 export type DateItemStatusType = 'show' | 'hide' | 'disable' | 'selected'
+export type TimeItemStatusType = 'show' | 'hide' | 'disable' | 'selected'
 
 export interface IDateItem {
     id: string
@@ -8,11 +9,24 @@ export interface IDateItem {
     status: DateItemStatusType
 }
 
+export interface ITimeItem {
+    id: string
+    text: string
+    status: DateItemStatusType
+    hour: number
+    minute: number
+}
 
 export interface IDateValue {
     date: number
     month: number
     year: number
+}
+
+export interface ITimeValue {
+    hour: number
+    minute: number
+    second: number
 }
 
 export type DatePickerType = ReturnType<typeof useDatePicker>
@@ -23,4 +37,8 @@ export interface IUseDatePicker {
     maxDate?: Date
     minTime?: Date
     maxTime?: Date
+    timeLabel?: string
+    fromTimeLabel?: string
+    toTimeLabel?: string
+    timeType?: number // 12 or 24
 }

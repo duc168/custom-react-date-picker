@@ -8,7 +8,12 @@ import Input from './Input'
 import styles from './styles.module.scss'
 const Container: React.FC<any> = () => {
     const containerRef = useRef(null)
-    const datePickerData = useDatePicker({})
+    const datePickerData = useDatePicker({
+        fromTimeLabel: 'Check-in',
+        timeLabel: 'Time',
+        toTimeLabel: 'Check-out',
+        timeType: 12
+    })
     const { 
         state: {
             value

@@ -1,18 +1,22 @@
-import React  from 'react'
-import TableContent from './TableContent'
-import TableHeader from './TableHeader'
+import React from 'react'
 import styles from './styles.module.scss'
+import Date from './Date'
+// import Time from './Time'
+import FromTime from './FromTime'
+import ToTime from './ToTime'
 import { DatePickerType } from '../interface'
 interface Props {
     data: DatePickerType
 }
-const Main: React.FC<Props> = ({
+const MainContainer: React.FC<Props> = ({
     data
 }) => {
     return <div className={styles.container}>
-        <TableHeader />
-        <TableContent data={data}/>
+            <Date data={data} />
+            {/* <Time data={data} /> */}
+            <FromTime data={data} />
+            <ToTime data={data} />
     </div>
 }
 
-export default Main
+export default MainContainer

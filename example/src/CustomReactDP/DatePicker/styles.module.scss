@@ -1,9 +1,7 @@
 .container {
     position: absolute;
     left: 50%;   
-    transform: translate(-50%, 0); 
-    border: 1px solid #e5e5e5;
-    padding: 8px;
+    transform: translate(-50%, 0);     
     &.show {
         display: block;
     }
