@@ -4074,10 +4074,10 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
 
-custom-react-dp@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/custom-react-dp/-/custom-react-dp-0.0.1.tgz#40922524700a13cade75045e76c087b3d893b639"
-  integrity sha512-L71DEYiRXch+jffZS9acPK/3CGJO86g7kQTvlTu4kmXupQ01u5ef+nK7EPlaCXFoFN8STfWEpHxgNYircr2bQg==
+custom-react-dp@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/custom-react-dp/-/custom-react-dp-0.0.4.tgz#ba2e6e87ebf30f3cf50e6031622d27604fc38cd2"
+  integrity sha512-Q1UD0JnOVJmMcxEMQySHD3qSgzkSOd9o7r3Du7Tdy41/ghaQC3PZRyBAH02W95/JNNIHt6a/F+nLhiiZY3ZbgA==
 
 cyclist@^1.0.1:
   version "1.0.1"
