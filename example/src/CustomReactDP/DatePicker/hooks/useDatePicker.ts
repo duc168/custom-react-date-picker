@@ -11,7 +11,7 @@ const useDatePicker = ({
     fromTimeLabel,
     toTimeLabel,
     timeLabel,
-    timeType = 24
+    timeType = 24,
  }: IUseDatePicker) => {
     const [status, setStatus] = useState(false)
     const [selectedYear, setSelectedYear] = useState<number>(0)

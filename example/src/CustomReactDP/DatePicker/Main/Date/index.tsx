@@ -8,12 +8,12 @@ interface Props {
     data: DatePickerType
 }
 const Main: React.FC<Props> = ({
-    data
+    data,
 }) => {
     return <div className={styles.container}>
         <Header data={data} />
         <TableHeader />
-        <TableContent data={data}/>
+        <TableContent data={data} />
     </div>
 }
 
