@@ -2,7 +2,7 @@ import { DateItemStatusType, DatePickerType, IDateItem } from "../../../interfac
 import React from "react";
 import styles from "./styles.module.scss";
 interface Props {
-  data: DatePickerType;
+  data: DatePickerType;  
 }
 const TableContent: React.FC<Props> = ({ data }) => {
   const {

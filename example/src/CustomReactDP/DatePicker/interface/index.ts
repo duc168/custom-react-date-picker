@@ -40,6 +40,10 @@ export interface IUseDatePicker {
     fromTimeLabel?: string
     toTimeLabel?: string
     timeType?: number // 12 or 24
+    onSelectDate?: (data: DatePickerDateValue) => void
+    onSelectTime?: (data: DatePickerTimeValue) => void
+    onSelectFromTime?: (data: DatePickerTimeRangeValue) => void
+    onSelectToTime?: (data: DatePickerTimeRangeValue) => void
 }
 
 export interface DatePickerValue {
@@ -69,14 +73,11 @@ export interface DatePickerTimeValue {
     second: number
 }
 
-export interface DatePickerFromTimeValue {
-    hour: number
-    minute: number
-    second: number
-}
-
-export interface DatePickerToTimeValue {
-    hour: number
-    minute: number
-    second: number
+export interface DatePickerTimeRangeValue {
+    fromHour: number
+    fromMinute: number
+    fromSecond: number
+    toHour: number
+    toMinute: number
+    toSecond: number
 }

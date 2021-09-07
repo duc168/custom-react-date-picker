@@ -1,7 +1,8 @@
 import { addDays, addMonths, differenceInMinutes, differenceInMonths, setHours, setMinutes, setSeconds } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { formatDate, getDateList, getTimeList } from '../helpers'
-import { DatePickerValue, ITimeItem, ITimeValue, IUseDatePicker } from '../interface'
+import { DatePickerDateValue, DatePickerTimeRangeValue, DatePickerTimeValue, DatePickerValue, ITimeItem, ITimeValue, IUseDatePicker } from '../interface'
+import _ from 'lodash'
 
 const useDatePicker = ({ 
     minDate = addDays(new Date(), -1),
@@ -12,6 +13,10 @@ const useDatePicker = ({
     toTimeLabel,
     timeLabel,
     timeType = 24,
+    onSelectDate,
+    onSelectTime,
+    onSelectFromTime,
+    onSelectToTime
  }: IUseDatePicker) => {
     const [status, setStatus] = useState(false)
     const [selectedYear, setSelectedYear] = useState<number>(0)
@@ -62,15 +67,27 @@ const useDatePicker = ({
 
     const selectDate = (dateInput: string) => {
         const datePayload = parseInt(dateInput, 10)
-        setSelectedDate(datePayload)
-        setValueDate(datePayload)
-        setValueMonth(selectedMonth)
-        setValueYear(selectedYear)
+        const result: DatePickerDateValue ={
+            year: selectedYear,
+            month: selectedMonth,
+            date: datePayload
+        }
+        setSelectedDate(result.date)
+        setValueDate(result.date)
+        setValueMonth(result.month)
+        setValueYear(result.year)
+        onSelectDate && onSelectDate(result)
     }
     const selectTime = (timeItem: ITimeItem) => {
-        setValueHour(timeItem.hour)
-        setValueMinute(timeItem.minute)
-        setValueSecond(0)
+        const result: DatePickerTimeValue = {
+            hour: timeItem.hour,
+            minute: timeItem.minute,
+            second: 0
+        }
+        setValueHour(result.hour)
+        setValueMinute(result.minute)
+        setValueSecond(result.second)
+        onSelectTime && onSelectTime(result)
     }
 
     const selectFromTime = (timeItem: ITimeItem) => {
@@ -78,13 +95,35 @@ const useDatePicker = ({
         const fromTime = new Date(2000, 1, 1, timeItem.hour, timeItem.minute)
         const fromTimeIsGreaterThanToTime = differenceInMinutes(toTime, fromTime) <= 0
         if (fromTimeIsGreaterThanToTime) {
-            setValueToHour(0)
-            setValueToMinute(0)
-            setValueToSecond(0)
+            const result1: DatePickerTimeRangeValue = {
+                fromHour: timeItem.hour,
+                fromMinute: timeItem.minute,
+                fromSecond: 0,
+                toHour: 0,
+                toMinute: 0,
+                toSecond: 0
+            }
+            setValueToHour(result1.toHour)
+            setValueToMinute(result1.toMinute)
+            setValueToSecond(result1.toSecond)
+            setValueFromHour(result1.fromHour)
+            setValueFromMinute(result1.fromMinute)
+            setValueFromSecond(result1.fromSecond)
+            onSelectFromTime && onSelectFromTime(result1)
+            return
         }
-        setValueFromHour(timeItem.hour)
-        setValueFromMinute(timeItem.minute)
-        setValueFromSecond(0)
+        const result2: DatePickerTimeRangeValue = {
+            fromHour: timeItem.hour,
+            fromMinute: timeItem.minute,
+            fromSecond: 0,
+            toHour: valueToHour,
+            toMinute: valueToMinute,
+            toSecond: valueToSecond
+        }
+        setValueFromHour(result2.fromHour)
+        setValueFromMinute(result2.fromMinute)
+        setValueFromSecond(result2.fromSecond)
+        onSelectFromTime && onSelectFromTime(result2)
     }
 
     const selectToTime = (timeItem: ITimeItem) => {
@@ -92,13 +131,35 @@ const useDatePicker = ({
         const fromTime = new Date(2000, 1, 1, valueFromHour, valueFromMinute)
         const toTimeIsLessThanFromTime = differenceInMinutes(toTime, fromTime) <= 0
         if (toTimeIsLessThanFromTime) {
-            setValueFromHour(0)
-            setValueFromMinute(0)
-            setValueFromSecond(0)
+            const result1: DatePickerTimeRangeValue = {
+                fromHour: 0,
+                fromMinute: 0,
+                fromSecond: 0,
+                toHour: timeItem.hour,
+                toMinute: timeItem.minute,
+                toSecond: 0,
+            }
+            setValueFromHour(result1.fromHour)
+            setValueFromMinute(result1.fromMinute)
+            setValueFromSecond(result1.fromSecond)
+            setValueToHour(result1.toHour)
+            setValueToMinute(result1.toMinute)
+            setValueToSecond(result1.toSecond)
+            onSelectToTime && onSelectToTime(result1)
+            return
         }
-        setValueToHour(timeItem.hour)
-        setValueToMinute(timeItem.minute)
-        setValueToSecond(0)
+        const result2: DatePickerTimeRangeValue = {
+            fromHour: valueFromHour,
+            fromMinute: valueFromMinute,
+            fromSecond: valueFromSecond,
+            toHour: timeItem.hour,
+            toMinute: timeItem.minute,
+            toSecond: 0,
+        }
+        setValueToHour(result2.toHour)
+        setValueToMinute(result2.toMinute)
+        setValueToSecond(result2.toSecond)
+        onSelectToTime && onSelectToTime(result2)
     }
 
     // const nextMonthLegacy = () => {
@@ -195,7 +256,7 @@ const useDatePicker = ({
     const timeList = getTimeList(timeType, timeObj, minTime, maxTime)    
     const fromTimeList = getTimeList(timeType, fromTimeObj, minTime, maxTime)    
     const toTimeList = getTimeList(timeType, toTimeObj, minTime, maxTime)    
-    return {
+    const result = {
         state: {
             fromTimeList,
             toTimeList,
@@ -242,6 +303,7 @@ const useDatePicker = ({
             updateSelectedDate,
         }
     }
+    return _.cloneDeep(result)
 }
 
 export default useDatePicker

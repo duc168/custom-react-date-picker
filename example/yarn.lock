@@ -1908,6 +1908,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/lodash@^4.14.172":
+  version "4.14.172"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.172.tgz#aad774c28e7bfd7a67de25408e03ee5a8c3d028a"
+  integrity sha512-/BHF5HAx3em7/KkzVKm3LrsD6HZAXuXO1AJZQ3cRRBZj4oHZDviWPYu0aEplAqDFNHZPW6d3G7KN+ONcCCC7pw==
+
 "@types/minimatch@*":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.5.tgz#1001cc5e6a3704b83c236027e77f2f58ea010f40"
@@ -4074,10 +4079,10 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
 
-custom-react-dp@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/custom-react-dp/-/custom-react-dp-0.0.4.tgz#ba2e6e87ebf30f3cf50e6031622d27604fc38cd2"
-  integrity sha512-Q1UD0JnOVJmMcxEMQySHD3qSgzkSOd9o7r3Du7Tdy41/ghaQC3PZRyBAH02W95/JNNIHt6a/F+nLhiiZY3ZbgA==
+custom-react-dp@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/custom-react-dp/-/custom-react-dp-0.0.5.tgz#7ec01f640f8c35d65000fc3e6e74cd6ed099c27b"
+  integrity sha512-sQQQXwYKJjqScybox5Z85W3lTyEK50OaffkWtyogY1UOqreW4cZPnDt5Y1/LbEYpO1c+cOqQImHnyFnVRR/GSA==
 
 cyclist@^1.0.1:
   version "1.0.1"
