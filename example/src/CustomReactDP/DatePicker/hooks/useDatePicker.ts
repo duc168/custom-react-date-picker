@@ -350,6 +350,18 @@ const useDatePicker = ({
             updateSelectedYear,
             updateSelectedMonth,
             updateSelectedDate,
+            setValueYear,
+            setValueMonth,
+            setValueDate,
+            setValueHour,
+            setValueMinute,
+            setValueSecond,
+            setValueFromHour,
+            setValueFromMinute,
+            setValueFromSecond,
+            setValueToHour,
+            setValueToMinute,
+            setValueToSecond,
         }
     }
     return _.cloneDeep(result)
