@@ -2,7 +2,7 @@
 
 ### _One line of code worths thousands lines of explanations._
 
-```
+```typescript
 import React, { useEffect, useRef } from 'react'
 import DatePicker, { DatePickerValue } from 'custom-react-dp'
 import { useDatePicker } from 'custom-react-dp'
@@ -32,7 +32,6 @@ const Container: React.FC<any> = () => {
         <DatePicker 
         data={datePickerData} 
         pickTimeRange={true}
-        onChange={onChange}
          />
     </div>
 }
@@ -40,7 +39,7 @@ const Container: React.FC<any> = () => {
 export default Container
 ```
 
-```
+```typescript
 import React from 'react'
 import styles from './styles.module.scss'
 import { DatePickerType } from 'custom-react-dp'
