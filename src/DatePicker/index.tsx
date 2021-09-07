@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { DatePickerType, DatePickerValue } from "./interface";
+import { DatePickerType } from "./interface";
 import Main from "./Main";
 import styles from "./styles.module.scss";
 interface Props {
@@ -7,11 +7,10 @@ interface Props {
   pickDate?: boolean;
   pickTime?: boolean;
   pickTimeRange?: boolean;
-  onChange?: (data: DatePickerValue) => void;
 }
-const DatePicker: React.FC<Props> = ({ data, onChange, ...props }) => {
+const DatePicker: React.FC<Props> = ({ data, ...props }) => {
   const {
-    state: { status, value },
+    state: { status },
     action: { updateSelectedYear, updateSelectedMonth },
   } = data;
   useEffect(() => {
@@ -19,10 +18,6 @@ const DatePicker: React.FC<Props> = ({ data, onChange, ...props }) => {
     updateSelectedMonth(new Date().getMonth());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  useEffect(() => {
-    onChange && onChange(value);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
   return (
     <div
       className={`${styles.container} ${status ? styles.show : styles.hide}`}

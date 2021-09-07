@@ -1,6 +1,6 @@
 import React from 'react';
 
-declare const useDatePicker$1: ({ minDate, maxDate, minTime, maxTime, fromTimeLabel, toTimeLabel, timeLabel, timeType }: IUseDatePicker) => {
+declare const useDatePicker$1: ({ minDate, maxDate, minTime, maxTime, fromTimeLabel, toTimeLabel, timeLabel, timeType, onSelectDate, onSelectTime, onSelectFromTime, onSelectToTime }: IUseDatePicker) => {
     state: {
         fromTimeList: ITimeItem[];
         toTimeList: ITimeItem[];
@@ -58,6 +58,10 @@ interface IUseDatePicker {
     fromTimeLabel?: string;
     toTimeLabel?: string;
     timeType?: number;
+    onSelectDate?: (data: DatePickerDateValue) => void;
+    onSelectTime?: (data: DatePickerTimeValue) => void;
+    onSelectFromTime?: (data: DatePickerTimeRangeValue) => void;
+    onSelectToTime?: (data: DatePickerTimeRangeValue) => void;
 }
 interface DatePickerValue$1 {
     year: number;
@@ -73,17 +77,34 @@ interface DatePickerValue$1 {
     toMinute: number;
     toSecond: number;
 }
+interface DatePickerDateValue {
+    year: number;
+    month: number;
+    date: number;
+}
+interface DatePickerTimeValue {
+    hour: number;
+    minute: number;
+    second: number;
+}
+interface DatePickerTimeRangeValue {
+    fromHour: number;
+    fromMinute: number;
+    fromSecond: number;
+    toHour: number;
+    toMinute: number;
+    toSecond: number;
+}
 
 interface Props {
     data: DatePickerType$1;
     pickDate?: boolean;
     pickTime?: boolean;
     pickTimeRange?: boolean;
-    onChange?: (data: DatePickerValue$1) => void;
 }
 declare const DatePicker: React.FC<Props>;
 
-declare const useDatePicker: ({ minDate, maxDate, minTime, maxTime, fromTimeLabel, toTimeLabel, timeLabel, timeType }: IUseDatePicker) => {
+declare const useDatePicker: ({ minDate, maxDate, minTime, maxTime, fromTimeLabel, toTimeLabel, timeLabel, timeType, onSelectDate, onSelectTime, onSelectFromTime, onSelectToTime }: IUseDatePicker) => {
     state: {
         fromTimeList: ITimeItem[];
         toTimeList: ITimeItem[];
