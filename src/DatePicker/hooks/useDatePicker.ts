@@ -1,5 +1,5 @@
 import { addDays, addMonths, differenceInMinutes, differenceInMonths, setHours, setMinutes, setSeconds } from 'date-fns'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { formatDate, getDateList, getTimeList } from '../helpers'
 import { DatePickerDateValue, DatePickerTimeRangeValue, DatePickerTimeValue, DatePickerValue, ITimeItem, ITimeValue, IUseDatePicker } from '../interface'
 import _ from 'lodash'
@@ -23,17 +23,17 @@ const useDatePicker = ({
     const [selectedMonth, setSelectedMonth] = useState<number>(0)
     const [selectedDate, setSelectedDate] = useState<number>(0)
 
-    const [selectedHour, setSelectedHour] = useState<number>(0)
-    const [selectedMinute, setSelectedMinute] = useState<number>(0)
-    const [selectedSecond, setSelectedSecond] = useState<number>(0)
+    // const [selectedHour, setSelectedHour] = useState<number>(0)
+    // const [selectedMinute, setSelectedMinute] = useState<number>(0)
+    // const [selectedSecond, setSelectedSecond] = useState<number>(0)
 
-    const [selectedFromHour, setSelectedFromHour] = useState<number>(0)
-    const [selectedFromMinute, setSelectedFromMinute] = useState<number>(0)
-    const [selectedFromSecond, setSelectedFromSecond] = useState<number>(0)
+    // const [selectedFromHour, setSelectedFromHour] = useState<number>(0)
+    // const [selectedFromMinute, setSelectedFromMinute] = useState<number>(0)
+    // const [selectedFromSecond, setSelectedFromSecond] = useState<number>(0)
 
-    const [selectedToHour, setSelectedToHour] = useState<number>(0)
-    const [selectedToMinute, setSelectedToMinute] = useState<number>(0)
-    const [selectedToSecond, setSelectedToSecond] = useState<number>(0)
+    // const [selectedToHour, setSelectedToHour] = useState<number>(0)
+    // const [selectedToMinute, setSelectedToMinute] = useState<number>(0)
+    // const [selectedToSecond, setSelectedToSecond] = useState<number>(0)
 
     const [valueHour, setValueHour] = useState<number>(0)
     const [valueMinute, setValueMinute] = useState<number>(0)
@@ -77,35 +77,35 @@ const useDatePicker = ({
         setSelectedDate(payload)
     }
 
-    const updateSelectedHour = (payload: number) => {
-        setSelectedHour(payload)
-    }
-    const updateSelectedMinute = (payload: number) => {
-        setSelectedMinute(payload)
-    }
-    const updateSelectedSecond = (payload: number) => {
-        setSelectedSecond(payload)
-    }
+    // const updateSelectedHour = (payload: number) => {
+    //     setSelectedHour(payload)
+    // }
+    // const updateSelectedMinute = (payload: number) => {
+    //     setSelectedMinute(payload)
+    // }
+    // const updateSelectedSecond = (payload: number) => {
+    //     setSelectedSecond(payload)
+    // }
 
-    const updateSelectedFromHour = (payload: number) => {
-        setSelectedFromHour(payload)
-    }
-    const updateSelectedFromMinute = (payload: number) => {
-        setSelectedFromMinute(payload)
-    }
-    const updateSelectedFromSecond = (payload: number) => {
-        setSelectedFromSecond(payload)
-    }
+    // const updateSelectedFromHour = (payload: number) => {
+    //     setSelectedFromHour(payload)
+    // }
+    // const updateSelectedFromMinute = (payload: number) => {
+    //     setSelectedFromMinute(payload)
+    // }
+    // const updateSelectedFromSecond = (payload: number) => {
+    //     setSelectedFromSecond(payload)
+    // }
 
-    const updateSelectedToHour = (payload: number) => {
-        setSelectedToHour(payload)
-    }
-    const updateSelectedToMinute = (payload: number) => {
-        setSelectedToMinute(payload)
-    }
-    const updateSelectedToSecond = (payload: number) => {
-        setSelectedToSecond(payload)
-    }
+    // const updateSelectedToHour = (payload: number) => {
+    //     setSelectedToHour(payload)
+    // }
+    // const updateSelectedToMinute = (payload: number) => {
+    //     setSelectedToMinute(payload)
+    // }
+    // const updateSelectedToSecond = (payload: number) => {
+    //     setSelectedToSecond(payload)
+    // }
 
     const selectDate = (dateInput: string) => {
         const datePayload = parseInt(dateInput, 10)
@@ -272,9 +272,9 @@ const useDatePicker = ({
     //
     
     const selectedDateTime =  new Date(selectedYear, selectedMonth, selectedDate === 0 ? 1 : selectedDate)
-    const selectedTime =  new Date(2000, 2, 2, selectedHour, selectedMinute, selectedSecond)
-    const selectedFromTime =  new Date(2000, 2, 2, selectedFromHour, selectedFromMinute, selectedFromSecond)
-    const selectedToTime =  new Date(2000, 2, 2, selectedToHour, selectedToMinute, selectedToSecond)
+    // const selectedTime =  new Date(2000, 2, 2, selectedHour, selectedMinute, selectedSecond)
+    // const selectedFromTime =  new Date(2000, 2, 2, selectedFromHour, selectedFromMinute, selectedFromSecond)
+    // const selectedToTime =  new Date(2000, 2, 2, selectedToHour, selectedToMinute, selectedToSecond)
 
     //
     const valueDateTime = new Date(valueYear, valueMonth, valueDate)

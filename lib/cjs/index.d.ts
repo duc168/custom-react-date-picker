@@ -1,4 +1,5 @@
-import React from 'react';
+import * as react from 'react';
+import react__default from 'react';
 
 declare const useDatePicker$1: ({ minDate, maxDate, minTime, maxTime, fromTimeLabel, toTimeLabel, timeLabel, timeType, onSelectDate, onSelectTime, onSelectFromTime, onSelectToTime }: IUseDatePicker) => {
     state: {
@@ -32,6 +33,18 @@ declare const useDatePicker$1: ({ minDate, maxDate, minTime, maxTime, fromTimeLa
         updateSelectedYear: (payload: number) => void;
         updateSelectedMonth: (payload: number) => void;
         updateSelectedDate: (payload: number) => void;
+        setValueYear: react.Dispatch<react.SetStateAction<number>>;
+        setValueMonth: react.Dispatch<react.SetStateAction<number>>;
+        setValueDate: react.Dispatch<react.SetStateAction<number>>;
+        setValueHour: react.Dispatch<react.SetStateAction<number>>;
+        setValueMinute: react.Dispatch<react.SetStateAction<number>>;
+        setValueSecond: react.Dispatch<react.SetStateAction<number>>;
+        setValueFromHour: react.Dispatch<react.SetStateAction<number>>;
+        setValueFromMinute: react.Dispatch<react.SetStateAction<number>>;
+        setValueFromSecond: react.Dispatch<react.SetStateAction<number>>;
+        setValueToHour: react.Dispatch<react.SetStateAction<number>>;
+        setValueToMinute: react.Dispatch<react.SetStateAction<number>>;
+        setValueToSecond: react.Dispatch<react.SetStateAction<number>>;
     };
 };
 
@@ -102,7 +115,7 @@ interface Props {
     pickTime?: boolean;
     pickTimeRange?: boolean;
 }
-declare const DatePicker: React.FC<Props>;
+declare const DatePicker: react__default.FC<Props>;
 
 declare const useDatePicker: ({ minDate, maxDate, minTime, maxTime, fromTimeLabel, toTimeLabel, timeLabel, timeType, onSelectDate, onSelectTime, onSelectFromTime, onSelectToTime }: IUseDatePicker) => {
     state: {
@@ -136,6 +149,18 @@ declare const useDatePicker: ({ minDate, maxDate, minTime, maxTime, fromTimeLabe
         updateSelectedYear: (payload: number) => void;
         updateSelectedMonth: (payload: number) => void;
         updateSelectedDate: (payload: number) => void;
+        setValueYear: react.Dispatch<react.SetStateAction<number>>;
+        setValueMonth: react.Dispatch<react.SetStateAction<number>>;
+        setValueDate: react.Dispatch<react.SetStateAction<number>>;
+        setValueHour: react.Dispatch<react.SetStateAction<number>>;
+        setValueMinute: react.Dispatch<react.SetStateAction<number>>;
+        setValueSecond: react.Dispatch<react.SetStateAction<number>>;
+        setValueFromHour: react.Dispatch<react.SetStateAction<number>>;
+        setValueFromMinute: react.Dispatch<react.SetStateAction<number>>;
+        setValueFromSecond: react.Dispatch<react.SetStateAction<number>>;
+        setValueToHour: react.Dispatch<react.SetStateAction<number>>;
+        setValueToMinute: react.Dispatch<react.SetStateAction<number>>;
+        setValueToSecond: react.Dispatch<react.SetStateAction<number>>;
     };
 };
 declare type DatePickerType = DatePickerType$1;
