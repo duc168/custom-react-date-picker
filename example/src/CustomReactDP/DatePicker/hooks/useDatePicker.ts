@@ -7,8 +7,8 @@ import _ from 'lodash'
 const useDatePicker = ({ 
     minDate = addDays(new Date(), -1),
     maxDate = new Date(2021, 11, 1),
-    minTime = setSeconds(setMinutes(setHours(new Date(), 8), 0), 0),
-    maxTime = setSeconds(setMinutes(setHours(new Date(), 16), 0), 0),
+    minTime = setSeconds(setMinutes(setHours(new Date(), 0), 0), 0),
+    maxTime = setSeconds(setMinutes(setHours(new Date(), 23), 0), 0),
     fromTimeLabel,
     toTimeLabel,
     timeLabel,
@@ -22,6 +22,18 @@ const useDatePicker = ({
     const [selectedYear, setSelectedYear] = useState<number>(0)
     const [selectedMonth, setSelectedMonth] = useState<number>(0)
     const [selectedDate, setSelectedDate] = useState<number>(0)
+
+    const [selectedHour, setSelectedHour] = useState<number>(0)
+    const [selectedMinute, setSelectedMinute] = useState<number>(0)
+    const [selectedSecond, setSelectedSecond] = useState<number>(0)
+
+    const [selectedFromHour, setSelectedFromHour] = useState<number>(0)
+    const [selectedFromMinute, setSelectedFromMinute] = useState<number>(0)
+    const [selectedFromSecond, setSelectedFromSecond] = useState<number>(0)
+
+    const [selectedToHour, setSelectedToHour] = useState<number>(0)
+    const [selectedToMinute, setSelectedToMinute] = useState<number>(0)
+    const [selectedToSecond, setSelectedToSecond] = useState<number>(0)
 
     const [valueHour, setValueHour] = useState<number>(0)
     const [valueMinute, setValueMinute] = useState<number>(0)
@@ -39,15 +51,15 @@ const useDatePicker = ({
     const [valueMonth, setValueMonth] = useState<number>(0)
     const [valueDate, setValueDate] = useState<number>(0)
 
-    useEffect(() => {
-        const now = new Date() 
-        const currentYear = now.getFullYear()
-        const currentMonth = now.getMonth()
-        const currentDate = now.getDate()
-        setSelectedYear(currentYear)
-        setSelectedMonth(currentMonth)
-        setSelectedDate(currentDate)
-    }, [])
+    // useEffect(() => {
+    //     const now = new Date() 
+    //     const currentYear = now.getFullYear()
+    //     const currentMonth = now.getMonth()
+    //     const currentDate = now.getDate()
+    //     setSelectedYear(currentYear)
+    //     setSelectedMonth(currentMonth)
+    //     setSelectedDate(currentDate)
+    // }, [])
 
     const showDatePicker = () => {
         setStatus(true)
@@ -63,6 +75,36 @@ const useDatePicker = ({
     }
     const updateSelectedDate = (payload: number) => {
         setSelectedDate(payload)
+    }
+
+    const updateSelectedHour = (payload: number) => {
+        setSelectedHour(payload)
+    }
+    const updateSelectedMinute = (payload: number) => {
+        setSelectedMinute(payload)
+    }
+    const updateSelectedSecond = (payload: number) => {
+        setSelectedSecond(payload)
+    }
+
+    const updateSelectedFromHour = (payload: number) => {
+        setSelectedFromHour(payload)
+    }
+    const updateSelectedFromMinute = (payload: number) => {
+        setSelectedFromMinute(payload)
+    }
+    const updateSelectedFromSecond = (payload: number) => {
+        setSelectedFromSecond(payload)
+    }
+
+    const updateSelectedToHour = (payload: number) => {
+        setSelectedToHour(payload)
+    }
+    const updateSelectedToMinute = (payload: number) => {
+        setSelectedToMinute(payload)
+    }
+    const updateSelectedToSecond = (payload: number) => {
+        setSelectedToSecond(payload)
     }
 
     const selectDate = (dateInput: string) => {
@@ -227,7 +269,14 @@ const useDatePicker = ({
         setSelectedYear(previousMonth.getFullYear())
         updateCurrentSelectedDate()
     }
+    //
+    
     const selectedDateTime =  new Date(selectedYear, selectedMonth, selectedDate === 0 ? 1 : selectedDate)
+    const selectedTime =  new Date(2000, 2, 2, selectedHour, selectedMinute, selectedSecond)
+    const selectedFromTime =  new Date(2000, 2, 2, selectedFromHour, selectedFromMinute, selectedFromSecond)
+    const selectedToTime =  new Date(2000, 2, 2, selectedToHour, selectedToMinute, selectedToSecond)
+
+    //
     const valueDateTime = new Date(valueYear, valueMonth, valueDate)
     const valueString = valueDate && valueMonth && valueYear ? formatDate(valueDateTime) : ''
     const valueObj = {
