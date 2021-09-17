@@ -15,7 +15,18 @@ const Container: React.FC<any> = () => {
         fromTimeLabel: 'Check-in',
         timeLabel: 'Time',
         toTimeLabel: 'Check-out',
-        timeType: 12
+        timeType: 12,
+        minDate: new Date(),
+        maxDate: new Date(3000, 3, 3),
+        onSelectDate: (data) => {
+            const { date, month, year } = data
+            const currentDate = new Date(year, month, date)
+            const changed = getDateTimeModel(currentDate)
+            console.log('changed', changed)
+            if (changed) {
+                // do something here
+            }
+        },  
     })
     const { 
         action: {
@@ -24,9 +35,6 @@ const Container: React.FC<any> = () => {
     useOnClickOutside(containerRef, () => {
         hideDatePicker()
     })
-    const onChange = (value: DatePickerValue) => {
-        console.log('on change value', value)
-    }
     return <div className={styles.container} ref={containerRef}>
         <Input data={datePickerData} />
         <DatePicker 
